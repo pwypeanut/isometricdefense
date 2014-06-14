@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GridClicker.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TestWorker.js">
     <Files>
-      <File FileName="Assets\GridClicker.js" Line="64" Column="40" />
-      <File FileName="Assets\GameScript.js" Line="66" Column="3" />
-      <File FileName="Assets\GridController.js" Line="4" Column="1" />
+      <File FileName="Assets\TestWorker.js" Line="18" Column="72" />
+      <File FileName="Assets\GroundController.js" Line="10" Column="41" />
+      <File FileName="Assets\TowerController.js" Line="22" Column="74" />
+      <File FileName="Assets\GridClicker.js" Line="1" Column="1" />
+      <File FileName="Assets\EnemyWorker.js" Line="23" Column="2" />
+      <File FileName="Assets\Spawner.js" Line="3" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

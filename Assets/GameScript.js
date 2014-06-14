@@ -33,6 +33,7 @@ class PriorityQueue {
 				return;
 			}
 		}
+		this.list.Insert(listSize, x);
 	}
 }
 
