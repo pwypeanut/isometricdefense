@@ -7,7 +7,7 @@ var HP : int = 5;
 function MakeWorkers() {
 	while (true) {
 		if (worker_enabled) Instantiate(worker, transform.position, Quaternion.Euler(0, 0, 0));
-		yield WaitForSeconds(20);
+		yield WaitForSeconds(10);
 	}
 }
 

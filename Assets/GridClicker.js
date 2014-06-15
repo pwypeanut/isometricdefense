@@ -183,6 +183,21 @@ function OnMouseDown () {
 		else {
 			// Place Basic Tower
 			if ( squareState[x, y] == 0 ) {
+				// Find 5 Workers To Build
+				var w = Physics.OverlapSphere(transform.position, 100);
+				var workers : List.<GameObject> = List.<GameObject>();
+				for ( var i : int = 0; i < w.Length; i++ ) {
+					if ( w[i].gameObject.tag == "Worker" ) {
+						if ( w[i].GetComponent(TestWorker).dying == false ) workers.Add(w[i].gameObject);
+					}
+				}
+				if ( workers.Count < 5 ) return;
+				for ( i = 0; i < 5; i++ ) {
+					var s : TestWorker = workers[i].GetComponent(TestWorker);
+					s.dying = true;
+					s.MoveTo(Vector3(x + 1, 0.4, y + 1));
+					Destroy(workers[i], 5);
+				}
 				Destroy(squareGM[x, y]);
 				squareGM[x, y] = Instantiate(tower, transform.position, Quaternion.Euler(0, 0, 0));
 				gridScript.UpdateSquareGM(x, y, squareGM[x, y]);

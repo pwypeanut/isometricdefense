@@ -39,7 +39,6 @@ function DetectNearbyWorkers() {
 }
 
 function Start() {
-	renderer.material.color = new Color(0, 1, 0);
 	AttackRoutinely();
 }
 
@@ -47,7 +46,7 @@ function Walk(p : Path) {
 	for ( var p1 in p.vectorPath ) {
 		transform.position = Vector3(p1.x, 0.4, p1.z);
 		//print(p1);
-		yield;
+		yield WaitForSeconds(0.05);
 	}
 }
 
@@ -77,15 +76,20 @@ function Update() {
 	
 }
 
+var killed : boolean = false;
+
 function OnTriggerEnter (c : Collider) {
 	print("Woah an attack");
 	var g : GameObject = c.gameObject;
+	if (killed) return;
 	if ( g.tag == "tower" ) {
+		killed = true;
 		var s1 : TowerController = g.GetComponent(TowerController);
 		s1.HP--;
 		Destroy(gameObject);
 	}
 	if ( g.tag == "Worker" ) {
+		killed = true;
 		var s : TestWorker = g.GetComponent(TestWorker);
 		s.HP--;
 		Destroy(gameObject);

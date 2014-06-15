@@ -5,7 +5,10 @@ import Pathfinding;
 
 var targetPosition : Vector3;
 var seeker : Seeker;
+var target_overwrite : boolean = false;
+var walk_overwrite : boolean = false;
 var HP : int = 1;
+var dying : boolean = false;
 
 function GetRandomPosition() {
 	var x : float = Random.Range(0, 140) / 10;
@@ -35,6 +38,10 @@ function NearestEnemy() {
 
 function RandomDerp() {
 	while (true) {
+		if (target_overwrite) {
+			yield WaitForSeconds(1);
+			continue;
+		}
 		var x = NearestEnemy();
 		if ( x == -1 ) targetPosition = GetRandomPosition();
 		else {
@@ -47,13 +54,22 @@ function RandomDerp() {
 	}
 }
 
+function MoveTo(x : Vector3) {
+	print("moving");
+	target_overwrite = true;
+	walk_overwrite = true;
+	targetPosition = x;
+	yield WaitForSeconds(0.2);
+	walk_overwrite = false;
+	seeker.StartPath(transform.position, targetPosition, OnPathComplete);
+}
+
 function Start() {
-	renderer.material.color = new Color(1, 0, 0, 1);
 	targetPosition = GetRandomPosition();
 	seeker = new GetComponent(Seeker);
 	seeker.StartPath(transform.position, targetPosition, OnPathComplete);
-	print(transform.position);
-	print(targetPosition);
+	//print(transform.position);
+	//print(targetPosition);
 	RandomDerp();
 }
 
@@ -61,7 +77,8 @@ function Walk(p : Path) {
 	for ( var p1 in p.vectorPath ) {
 		transform.position = Vector3(p1.x, 0.4, p1.z);
 		//print(p1);
-		yield;
+		if (walk_overwrite) return;
+		yield WaitForSeconds(0.05);
 	}
 }
 
