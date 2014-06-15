@@ -92,6 +92,9 @@ function OnTriggerEnter (c : Collider) {
 		killed = true;
 		var s : TestWorker = g.GetComponent(TestWorker);
 		s.HP--;
+		var s2 : GameObject = GameObject.FindWithTag("GridController");
+		var g1 : ScoreKeeper = s2.GetComponent(ScoreKeeper);
+		g1.score++;
 		Destroy(gameObject);
 	}
 }

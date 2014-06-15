@@ -52,6 +52,7 @@
      <Compile Include="Assets\GridController.js" />
      <Compile Include="Assets\GridGenerator.js" />
      <Compile Include="Assets\GroundController.js" />
+     <Compile Include="Assets\ScoreKeeper.js" />
      <Compile Include="Assets\Spawner.js" />
      <Compile Include="Assets\TestWorker.js" />
      <Compile Include="Assets\TowerController.js" />
