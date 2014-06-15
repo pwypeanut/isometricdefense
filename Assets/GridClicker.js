@@ -9,6 +9,7 @@ var redcolor : Color;
 var pinkcolor : Color;
 var emptyObject : GameObject;
 var archTowerPrefab : GameObject;
+var HQPrefab : GameObject;
 private var gridScript : GridController;
 private var defaultcolor : Color;
 private var id : int = -1;
@@ -97,6 +98,22 @@ function change(x : int, y : int, id : int) {
 	gridScript.UpdateSquareGM(x, y, squareGM[x, y]);
 }
 
+function SetupHQBuilding() {
+	var HQ : Tower = new Tower();
+	HQ.configState[0, 0] = 0;
+	HQ.configState[0, 1] = 0;
+	HQ.configState[0, 2] = 0;
+	HQ.configState[1, 0] = 1;
+	HQ.configState[1, 1] = 2;
+	HQ.configState[1, 2] = 0;
+	HQ.configState[2, 0] = 1;
+	HQ.configState[2, 1] = 1;
+	HQ.configState[2, 2] = 0;
+	HQ.endID = 5;
+	HQ.endObject = HQPrefab;
+	towers.Add(HQ);
+}
+
 function Start () {
 	Update();
 	actcube.renderer.material.color = pinkcolor;
@@ -107,6 +124,7 @@ function Start () {
 	x--;
 	y--;
 	SetupArcherTower();
+	SetupHQBuilding();
 }
 
 function OnMouseEnter () {
@@ -191,13 +209,13 @@ function OnMouseDown () {
 						if ( w[i].GetComponent(TestWorker).dying == false ) workers.Add(w[i].gameObject);
 					}
 				}
-				if ( workers.Count < 5 ) return;
+				/*if ( workers.Count < 5 ) return;
 				for ( i = 0; i < 5; i++ ) {
 					var s : TestWorker = workers[i].GetComponent(TestWorker);
 					s.dying = true;
 					s.MoveTo(Vector3(x + 1, 0.4, y + 1));
 					Destroy(workers[i], 5);
-				}
+				}*/
 				Destroy(squareGM[x, y]);
 				squareGM[x, y] = Instantiate(tower, transform.position, Quaternion.Euler(0, 0, 0));
 				gridScript.UpdateSquareGM(x, y, squareGM[x, y]);

@@ -1,15 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Spawner.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HQController.js">
     <Files>
-      <File FileName="Assets\ScoreKeeper.js" Line="29" Column="24" />
-      <File FileName="Assets\TestWorker.js" Line="17" Column="26" />
-      <File FileName="Assets\GroundController.js" Line="10" Column="41" />
-      <File FileName="Assets\TowerController.js" Line="9" Column="3" />
-      <File FileName="Assets\GridClicker.js" Line="189" Column="49" />
-      <File FileName="Assets\EnemyWorker.js" Line="97" Column="14" />
-      <File FileName="Assets\Spawner.js" Line="33" Column="3" />
-      <File FileName="Assets\GridController.js" Line="1" Column="1" />
+      <File FileName="Assets\HQController.js" Line="19" Column="65" />
+      <File FileName="Assets\TowerController.js" Line="6" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

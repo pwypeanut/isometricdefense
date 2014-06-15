@@ -85,7 +85,9 @@ function OnTriggerEnter (c : Collider) {
 	if ( g.tag == "tower" ) {
 		killed = true;
 		var s1 : TowerController = g.GetComponent(TowerController);
-		s1.HP--;
+		var s1a : ArcheryFactoryController = g.GetComponent(ArcheryFactoryController);
+		if ( s1 != null ) s1.HP--;
+		if ( s1a != null ) s1a.HP--;
 		Destroy(gameObject);
 	}
 	if ( g.tag == "Worker" ) {
@@ -97,4 +99,12 @@ function OnTriggerEnter (c : Collider) {
 		g1.score++;
 		Destroy(gameObject);
 	}
+	if ( g.tag == "arrow" ) {
+		killed = true;
+		var s3 : GameObject = GameObject.FindWithTag("GridController");
+		var g2 : ScoreKeeper = s3.GetComponent(ScoreKeeper);
+		g2.score++;
+		Destroy(gameObject);
+	}
+	
 }
