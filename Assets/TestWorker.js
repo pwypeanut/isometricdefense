@@ -78,7 +78,7 @@ function Walk(p : Path) {
 		transform.position = Vector3(p1.x, 0.4, p1.z);
 		//print(p1);
 		if (walk_overwrite) return;
-		yield WaitForSeconds(0.05);
+		yield WaitForSeconds(0.01);
 	}
 }
 
