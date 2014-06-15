@@ -3,6 +3,7 @@
 var enemy : GameObject;
 var worker : GameObject;
 
+// Spawns the enemy at a random edge along the side of the grid.
 function SpawnEnemy() {
 	var side : int = Random.Range(0, 4);
 	var a : int = Random.Range(0, 14);
@@ -28,6 +29,7 @@ function StartLevel(x : int) {
 }
 
 function Start () {
+	// Spawn 5 workers automatically at the start of the game.
 	for ( var i : int = 0; i < 5; i++ ) {
 		Instantiate(worker, Vector3(Random.Range(0, 14), 0.4, Random.Range(0, 14)), Quaternion.Euler(0, 0, 0));
 	}
